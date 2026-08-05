@@ -7,16 +7,13 @@
 
     <meta name="6a97888e-site-verification" content="4d01e07ffda5e58f13a23137f706a932">
     
-    <!-- Video.js CSS (Dibutuhkan untuk In-Stream VAST Player) -->
+    <!-- Video.js CSS (Library Utama Player & In-Stream Ads) -->
     <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/6.6.5/videojs-contrib-ads.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/videojs-ima/1.11.0/videojs.ima.css" rel="stylesheet" />
 
-    <!-- ========================================== -->
-    <!-- 1. SCRIPT POPUNDER EXOCLICK                -->
-    <!-- ========================================== -->
-    <!-- Ganti URL/Script di bawah dengan Zone Script Popunder dari Dashboard ExoClick Anda -->
-    <script type="text/javascript" src="hhttps://s.pemsrv.com/v1/link.php?cat=&idzone=5995530&type=8"></script>
+    <!-- 1. SCRIPT POPUNDER / DIRECT LINK EXOCLICK (Perbaikan: Typo hhttps:// dihapus) -->
+    <script type="text/javascript" src="https://s.pemsrv.com/v1/link.php?cat=&idzone=5995530&type=8"></script>
 
     <style>
         * {
@@ -151,9 +148,7 @@
     </div>
 
     <div class="video-wrapper">
-        <!-- ========================================== -->
-        <!-- 2. PEMUTAR VIDEO (SUPPORT IN-STREAM VAST)  -->
-        <!-- ========================================== -->
+        <!-- 2. PEMUTAR VIDEO BEBAS FORCE CLICK (VAST IN-STREAM READY) -->
         <video id="myVideo" class="video-js vjs-default-skin" controls playsinline poster="link-gambar-cover.jpg">
             <source src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&q=80" type="video/mp4">
             Browser Anda tidak mendukung pemutar video ini.
@@ -161,11 +156,12 @@
     </div>
 
     <div class="action-area">
+        <!-- Teks Tombol Organik / Bebas Ujaran Meminta Klik/Support -->
         <a href="https://omg10.com/4/11506351" 
            target="_blank" 
            rel="noopener noreferrer" 
            class="btn-sponsor">
-            🚀 BANTU SUPPOR Tonton Rekomendasi Hari Ini 
+            🚀 Tonton Rekomendasi Hari Ini
         </a>
         
         <p class="sub-text">
@@ -180,7 +176,7 @@
         </a>
 
         <div class="ad-container">
-            <!-- Tempat Banner Tambahan -->
+            <!-- Tempat Banner Tambahan Monetag/ExoClick -->
         </div>
     </div>
 </div>
@@ -195,16 +191,15 @@
     // Inisialisasi Player Video.js
     var player = videojs('myVideo');
 
-    // Pengaturan In-Stream Video (ExoClick VAST URL)
+    // Pengaturan In-Stream Video VAST ExoClick
     var options = {
         id: 'myVideo',
-        // Masukkan URL Tag VAST yang Anda dapatkan setelah klik [CREATE] Zone In-Stream di ExoClick
         adTagUrl: 'https://s.magsrv.com/v1/vast.php?idz=5995492'
     };
 
     player.ima(options);
 
-    // Memungkinkan tayangan berputar di mobile setelah iklan selesai
+    // Pengaturan Responsif untuk Perangkat Seluler (Android/iOS)
     var contentPlayer = document.getElementById('myVideo_html5_api');
     if (navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)) {
         player.one('touchend', function() {
