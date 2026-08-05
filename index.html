@@ -6,7 +6,17 @@
     <title>VIDEY - Video Player</title>
 
     <meta name="6a97888e-site-verification" content="4d01e07ffda5e58f13a23137f706a932">
-    <!-- Contoh: Direct Link / Popunder Script dari Monetag Dashboard -->
+    
+    <!-- Video.js CSS (Dibutuhkan untuk In-Stream VAST Player) -->
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/6.6.5/videojs-contrib-ads.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/videojs-ima/1.11.0/videojs.ima.css" rel="stylesheet" />
+
+    <!-- ========================================== -->
+    <!-- 1. SCRIPT POPUNDER EXOCLICK                -->
+    <!-- ========================================== -->
+    <!-- Ganti URL/Script di bawah dengan Zone Script Popunder dari Dashboard ExoClick Anda -->
+    <script type="text/javascript" src="https://a.exoclick.com/popunder12345.js"></script>
 
     <style>
         * {
@@ -61,15 +71,12 @@
             overflow: hidden;
             position: relative;
             min-height: 220px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-        .video-wrapper video {
-            width: 100%;
-            display: block;
-            object-fit: contain;
+        .video-js {
+            width: 100% !important;
+            height: 230px !important;
+            border-radius: 10px;
         }
 
         .action-area {
@@ -126,7 +133,6 @@
             background-color: #3f3f46;
         }
 
-        /* Area Penempatan Banner Monetag Resmi */
         .ad-container {
             width: 100%;
             min-height: 50px;
@@ -145,15 +151,16 @@
     </div>
 
     <div class="video-wrapper">
-        <!-- Video Pemutar Asli tanpa Overlay Kunci -->
-        <video id="myVideo" controls playsinline poster="link-gambar-cover.jpg">
+        <!-- ========================================== -->
+        <!-- 2. PEMUTAR VIDEO (SUPPORT IN-STREAM VAST)  -->
+        <!-- ========================================== -->
+        <video id="myVideo" class="video-js vjs-default-skin" controls playsinline poster="link-gambar-cover.jpg">
             <source src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&q=80" type="video/mp4">
             Browser Anda tidak mendukung pemutar video ini.
         </video>
     </div>
 
     <div class="action-area">
-        <!-- Tautan Direct Link Monetag (Opsional) -->
         <a href="https://your-monetag-directlink.com" 
            target="_blank" 
            rel="noopener noreferrer" 
@@ -172,12 +179,39 @@
             🛍️ VOUCHER SHOPEE DISKON HINGGA 90%
         </a>
 
-        <!-- Penempatan Script Banner Resmi Monetag -->
         <div class="ad-container">
-            <!-- Sisipkan kode Widget/Banner In-Page Push atau Banner Native Monetag di sini -->
+            <!-- Tempat Banner Tambahan -->
         </div>
     </div>
 </div>
+
+<!-- SDK JavaScript Pemutar Video & Iklan VAST -->
+<script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+<script src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/6.6.5/videojs-contrib-ads.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-ima/1.11.0/videojs.ima.min.js"></script>
+
+<script>
+    // Inisialisasi Player Video.js
+    var player = videojs('myVideo');
+
+    // Pengaturan In-Stream Video (ExoClick VAST URL)
+    var options = {
+        id: 'myVideo',
+        // Masukkan URL Tag VAST yang Anda dapatkan setelah klik [CREATE] Zone In-Stream di ExoClick
+        adTagUrl: 'https://s.magsrv.com/v1/vast.php?idz=5995492'
+    };
+
+    player.ima(options);
+
+    // Memungkinkan tayangan berputar di mobile setelah iklan selesai
+    var contentPlayer = document.getElementById('myVideo_html5_api');
+    if (navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)) {
+        player.one('touchend', function() {
+            player.ima.initializeAdDisplayContainer();
+        });
+    }
+</script>
 
 </body>
 </html>
