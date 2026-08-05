@@ -1,100 +1,183 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-   <script src="https://quge5.com/88/tag.min.js" data-zone="257426" async data-cfasync="false"></script>
-    <meta name="monetag" content="884578f4d97731098913b9c5593b0380">
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineVerse - Streaming Film Terlengkap</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>VIDEY - Video Player</title>
+
+    <meta name="6a97888e-site-verification" content="4d01e07ffda5e58f13a23137f706a932">
+    <!-- Contoh: Direct Link / Popunder Script dari Monetag Dashboard -->
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0f0f10;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .video-card {
+            width: 100%;
+            max-width: 420px;
+            background-color: #18181b;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #27272a;
+            padding: 16px;
+        }
+
+        /* --- HEADER --- */
+        .card-header {
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .brand-title {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* --- VIDEO PLAYER --- */
+        .video-wrapper {
+            width: 100%;
+            background-color: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            min-height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            display: block;
+            object-fit: contain;
+        }
+
+        .action-area {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* --- TOMBOL MONETAG / SPONSOR --- */
+        .btn-sponsor {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 16px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-sponsor:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4);
+        }
+
+        .sub-text {
+            font-size: 11px;
+            color: #a1a1aa;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .btn-shopee {
+            display: block;
+            background-color: #27272a;
+            color: #e4e4e7;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            text-align: center;
+            font-weight: 500;
+            border: 1px solid #3f3f46;
+            transition: background-color 0.2s;
+        }
+
+        .btn-shopee:hover {
+            background-color: #3f3f46;
+        }
+
+        /* Area Penempatan Banner Monetag Resmi */
+        .ad-container {
+            width: 100%;
+            min-height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 8px;
+        }
+    </style>
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo">Cine<span>Verse</span></div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Movies</a></li>
-                <li><a href="#">Series</a></li>
-                <li><a href="#">My List</a></li>
-            </ul>
-        </nav>
-        <div class="search-box">
-            <input type="text" placeholder="Cari film...">
+<div class="video-card">
+    <div class="card-header">
+        <h1 class="brand-title">VIDEY VIRAL</h1>
+    </div>
+
+    <div class="video-wrapper">
+        <!-- Video Pemutar Asli tanpa Overlay Kunci -->
+        <video id="myVideo" controls playsinline poster="link-gambar-cover.jpg">
+            <source src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&q=80" type="video/mp4">
+            Browser Anda tidak mendukung pemutar video ini.
+        </video>
+    </div>
+
+    <div class="action-area">
+        <!-- Tautan Direct Link Monetag (Opsional) -->
+        <a href="https://your-monetag-directlink.com" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-sponsor">
+            🚀 Tonton Rekomendasi Hari Ini
+        </a>
+        
+        <p class="sub-text">
+            Saksikan tayangan menarik lainnya melalui tautan resmi mitra kami.
+        </p>
+
+        <a href="https://s.shopee.co.id/2LXEzTHPnc" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-shopee">
+            🛍️ VOUCHER SHOPEE DISKON HINGGA 90%
+        </a>
+
+        <!-- Penempatan Script Banner Resmi Monetag -->
+        <div class="ad-container">
+            <!-- Sisipkan kode Widget/Banner In-Page Push atau Banner Native Monetag di sini -->
         </div>
-    </header>
+    </div>
+</div>
 
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="badge">Trending #1</span>
-            <h1>Avatar: The Way of Water</h1>
-            <p class="meta">2022 • 3j 12m • Sci-Fi/Action</p>
-            <p class="description">Jake Sully tinggal bersama keluarga barunya yang terbentuk di planet Pandora. Setelah ancaman kembali datang, Jake harus bekerja sama dengan Neytiri dan pasukan ras Na'vi untuk melindungi planet mereka.</p>
-            <div class="buttons">
-                <button class="btn btn-play">▶ Tonton Sekarang</button>
-                <button class="btn btn-info">ℹ Info Selengkapnya</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="movies-section">
-        <h2>Film Populer Minggu Ini</h2>
-        <div class="movies-grid">
-            
-            <div class="movie-card">
-                <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&q=80" alt="Movie Poster">
-                    <div class="rating">⭐ 8.5</div>
-                </div>
-                <div class="movie-info">
-                    <h3>The Midnight Journey</h3>
-                    <p>Petualangan, Misteri</p>
-                </div>
-            </div>
-
-            <div class="movie-card">
-                <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&q=80" alt="Movie Poster">
-                    <div class="rating">⭐ 7.9</div>
-                </div>
-                <div class="movie-info">
-                    <h3>Cyberpunk 2077</h3>
-                    <p>Sci-Fi, Aksi</p>
-                </div>
-            </div>
-
-            <div class="movie-card">
-                <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=400&q=80" alt="Movie Poster">
-                    <div class="rating">⭐ 9.0</div>
-                </div>
-                <div class="movie-info">
-                    <h3>Classic Cinema</h3>
-                    <p>Drama, Romantis</p>
-                </div>
-            </div>
-
-            <div class="movie-card">
-                <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1509281373149-e957c6296406?w=400&q=80" alt="Movie Poster">
-                    <div class="rating">⭐ 8.2</div>
-                </div>
-                <div class="movie-info">
-                    <h3>Neon Lights</h3>
-                    <p>Thriller, Kriminal</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-</body>
-</html>
-</head>
 </body>
 </html>
